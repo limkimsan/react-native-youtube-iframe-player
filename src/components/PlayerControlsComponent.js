@@ -1,6 +1,5 @@
-import React, {useRef, useReducer} from 'react'
-import {ActivityIndicator, View, TouchableOpacity, StyleSheet, Text} from 'react-native'
-import YoutubePlayer from "react-native-youtube-iframe"
+import React from 'react'
+import {ActivityIndicator, TouchableOpacity, StyleSheet} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import SliderComponent from './SliderComponent';
 import color from '../constants/color_constant'

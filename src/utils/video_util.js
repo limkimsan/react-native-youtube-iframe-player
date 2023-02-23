@@ -1,7 +1,10 @@
+import {isShortWidthScreen} from './responsive_util';
+
 const videoUtil = (() => {
   return {
     getVideoId,
-    getFormattedPlaySeconds
+    getFormattedPlaySeconds,
+    getContainerHeight
   }
 
   function getVideoId(url) {
@@ -17,6 +20,14 @@ const videoUtil = (() => {
 
   function getFormattedPlaySeconds(seconds = 0) {
     return new Date(Math.round(seconds) * 1000).toISOString().substr(14, 5)
+  }
+
+  function getContainerHeight(heightProps, isTablet) {
+    let height = !!heightProps ? heightProps : isTablet ? 320 : 210
+    if (isShortWidthScreen())
+      height = height - 20
+
+    return height
   }
 })()
 

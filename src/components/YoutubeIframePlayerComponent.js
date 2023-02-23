@@ -7,6 +7,9 @@ import PlayerControlsComponent from './PlayerControlsComponent'
 import {UNSTARTED} from '../constants/video_constant'
 import videoUtil from '../utils/video_util';
 
+const defaultHeight = 210
+const deafultWidth = '100%'
+
 const YoutubeIframePlayerComponent = (props) => {
   const [state, setState] = useReducer((prev, next) => {
     return {...prev, ...next}
@@ -20,7 +23,7 @@ const YoutubeIframePlayerComponent = (props) => {
   const renderVideoPlayer = () => {
     return <React.Fragment>
               <PlayerControlsComponent playerRef={playerRef} isPlaying={state.isPlaying} isLoading={state.isLoading} videoState={state.videoState} playPauseContainerStyle={props.playPauseContainerStyle}
-                height={props.height} togglePlaying={() => setState({isPlaying: !state.isPlaying})}
+                height={props.height || defaultHeight} loadingColor={props.loadingColor} togglePlaying={() => setState({isPlaying: !state.isPlaying})}
               />
               <YoutubePlayer
                 ref={playerRef}
@@ -35,10 +38,11 @@ const YoutubeIframePlayerComponent = (props) => {
            </React.Fragment>
   }
 
+  const height = !!props.height ? (props.height + 10) : defaultHeight
   return (
-    <View style={[{height: props.height + 10, width: props.width, alignItems: 'center', justifyContent: 'center'}, props.containerStyle]}>
+    <View style={[{height: height, width: props.width || deafultWidth, alignItems: 'center', justifyContent: 'center'}, props.containerStyle]}>
       { !props.hasInternet || !props.videoUrl ?
-      <WarningMessageComponent videoUrl={props.videoUrl} locale={props.locale} playIconSize={props.playIconSize} fontSize={props.fontSize} />
+      <WarningMessageComponent videoUrl={props.videoUrl} locale={props.locale || 'km'} playIconSize={props.playIconSize} labelSize={props.labelSize} />
       : renderVideoPlayer() }
     </View>
   )

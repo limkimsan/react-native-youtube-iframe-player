@@ -14,7 +14,7 @@ const WarningMessageComponent = (props) => {
   return (
     <View style={{borderWidth: 0, alignItems: 'center', marginTop: -26}}>
       <Icon name={error.icon} size={props.playIconSize || 38} color={color.lightGray} />
-      <Text style={{color: color.lightGray, marginTop: 6, fontSize: props.fontSize || 14}}>{error.message}</Text>
+      <Text style={{color: color.lightGray, marginTop: 6, fontSize: props.labelSize || 14}}>{error.message}</Text>
     </View>
   )
 }

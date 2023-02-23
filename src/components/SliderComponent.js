@@ -63,8 +63,8 @@ class YoutubeIframePlayerSlider extends React.Component {
 
     return (
       <View style={styles.sliderContainer}>
-        <View style={{marginLeft: 8, height: 21}}>
-          {this.state.showDuration && <Text style={{fontSize: 11, color: 'white'}}>{videoUtil.getFormattedPlaySeconds(this.state.playSeconds)} / {videoUtil.getFormattedPlaySeconds(this.state.duration)}</Text>}
+        <View style={{marginLeft: 8, height: 21, position: 'absolute', zIndex: 1, top: -8}}>
+          {this.state.showDuration && <Text style={{fontSize: this.props.durationFontSize || 11, color: 'white'}}>{videoUtil.getFormattedPlaySeconds(this.state.playSeconds)} / {videoUtil.getFormattedPlaySeconds(this.state.duration)}</Text>}
         </View>
         <Slider
           value={this.state.playSeconds}
@@ -74,8 +74,8 @@ class YoutubeIframePlayerSlider extends React.Component {
           maximumTrackTintColor={color.lightGrayColor}
           minimumTrackTintColor='#FF0000'
           trackClickable={true}
-          containerStyle={{height: 20}}
-          thumbTouchSize={{ width: 48, height: 48 }}
+          containerStyle={{height: '100%', marginTop: 7}}
+          thumbTouchSize={{height: 50}}
           thumbStyle={{backgroundColor: color.red, width: this.state.thumbSize, height: this.state.thumbSize }}
           trackStyle={{height: this.state.thumbSize > 12 ? 6 : 4}}
           onSlidingComplete={(value) => this.onSlidingComplete(value)}
@@ -89,11 +89,11 @@ class YoutubeIframePlayerSlider extends React.Component {
 
 const styles = StyleSheet.create({
   sliderContainer: {
-    bottom: 10,
+    bottom: 0,
     position: 'absolute',
-    height: 38,
+    height: 46,
     width: '100%',
-    zIndex: 5,
+    zIndex: 20
   }
 });
 

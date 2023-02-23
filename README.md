@@ -13,13 +13,14 @@ npm install react-native-youtube-iframe-player
 
 ## Installing dependencies
 ```sh
-npm install react-native-vector-icons react-native-youtube-iframe react-native-webview @miblanchard/react-native-slider
+npm install react-native-vector-icons react-native-youtube-iframe react-native-webview @miblanchard/react-native-slider @react-native-community/netinfo
 ```
 
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - [react-native-youtube-iframe](https://github.com/LonelyCpp/react-native-youtube-iframe)
 - [react-native-webview](https://github.com/react-native-webview/react-native-webview)
 - [@miblanchard/react-native-slider](https://github.com/miblanchard/react-native-slider)
+- [@react-native-community/netinfo](https://github.com/react-native-netinfo/react-native-netinfo)
 
 #### Note:
 You need to make configuration on iOS and Android by following the instruction from the above dependencies libraries.
@@ -33,10 +34,10 @@ import YoutubeIframePlayer from 'react-native-youtube-iframe-player';
 
 <YoutubeIframePlayer
     videoUrl='https://www.youtube.com/watch?v=f7OPcDX_LyI&t=3s'
-    hasInternet={true}
     height={210}
     width='100%'
     locale='km'
+    durationFontSize={15}
 />
 ```
 
@@ -46,13 +47,13 @@ import YoutubeIframePlayer from 'react-native-youtube-iframe-player';
 | Prop               |    Default    |    Type    | Description                                                         |
 | :----------------- | :-----------: | :--------: | :-------------------------------------------------------------------|
 | videoUrl           |       ''      |  `string`  | The URL of the Youtube video                                        |
-| hasInternet        |    'false'    |  `boolean` | The status of the internet connection of the user device            |
 | height             |      210      |  `number`  | The height of the iframe                                            |
 | width              |     '100%'    |  `number`  | The width of the iframe                                             |
 | locale             |      'km'     |  `string`  | The locale of the warning message (`km` or `en`)                    |
 | labelSize          |       14      |  `number`  | The font size of the warning message                                |
 | playIconSize       |       38      |  `number`  | The size of the play icon                                           |
 | loadingColor       |   '#000000'   |  `string`  | The color of the loading indicator                                  |
+| durationFontSize   |       11      |  `number`  | The font size of the duration and play seconds                      |
 
 #### Custom styles
 

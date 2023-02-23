@@ -1,0 +1,5 @@
+export const UNSTARTED = 'unstarted'
+export const BUFFERING = 'buffering' 
+export const ENDED = 'ended'
+export const PAUSED = 'paused'
+export const PLAYING = 'playing'

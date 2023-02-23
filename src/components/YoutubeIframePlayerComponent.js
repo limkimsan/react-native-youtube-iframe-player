@@ -7,7 +7,6 @@ import WarningMessageComponent from './WarningMessageComponent'
 import PlayerControlsComponent from './PlayerControlsComponent'
 import {UNSTARTED} from '../constants/video_constant'
 import videoUtil from '../utils/video_util';
-import {isShortWidthScreen} from '../utils/responsive_util';
 
 const YoutubeIframePlayerComponent = (props) => {
   const [state, setState] = useReducer((prev, next) => {
@@ -22,9 +21,7 @@ const YoutubeIframePlayerComponent = (props) => {
   const hasInternetRef = useRef(true);
   const isLoadingRef = useRef(state.isLoading);
   let timeout = null
-  let height = props.height || 210
-  if (isShortWidthScreen())
-    height = height - 20
+  const height = videoUtil.getContainerHeight(props.height, props.isTablet)
 
   useEffect(() => {
     NetInfo.fetch().then(state => {
@@ -44,7 +41,6 @@ const YoutubeIframePlayerComponent = (props) => {
   const renderVideoPlayer = () => {
     return <React.Fragment>
               <PlayerControlsComponent playerRef={playerRef} isPlaying={state.isPlaying} isLoading={state.isLoading} videoState={state.videoState} playPauseContainerStyle={props.playPauseContainerStyle}
-                // height={props.height || defaultHeight} loadingColor={props.loadingColor} durationFontSize={props.durationFontSize} togglePlaying={() => setState({isPlaying: !state.isPlaying})}
                 height={height} loadingColor={props.loadingColor} durationFontSize={props.durationFontSize} togglePlaying={() => setState({isPlaying: !state.isPlaying})}
               />
               <YoutubePlayer

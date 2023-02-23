@@ -1,6 +1,9 @@
-# react-native-youtube-iframe-player
+# react-native-bottom-sheet-picker
 
-A Youtube video player iframe
+React native youtube iframe player is a youtube iframe that is cloned from the react-native-youtube-iframe to solve the issue of showing the developer options when using the youtube iframe inside the pressable component.
+
+## Support
+iOS & Android
 
 ## Installation
 
@@ -8,23 +11,55 @@ A Youtube video player iframe
 npm install react-native-youtube-iframe-player
 ```
 
+## Installing dependencies
+```sh
+npm install react-native-vector-icons react-native-youtube-iframe react-native-webview @miblanchard/react-native-slider
+```
+
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+- [react-native-youtube-iframe](https://github.com/LonelyCpp/react-native-youtube-iframe)
+- [react-native-webview](https://github.com/react-native-webview/react-native-webview)
+- [@miblanchard/react-native-slider](https://github.com/miblanchard/react-native-slider)
+
+#### Note:
+You need to make configuration on iOS and Android by following the instruction from the above dependencies libraries.
+
 ## Usage
 
 ```js
-import { multiply } from 'react-native-youtube-iframe-player';
+import YoutubeIframePlayer from 'react-native-youtube-iframe-player';
 
 // ...
 
-const result = await multiply(3, 7);
+<YoutubeIframePlayer
+    videoUrl='https://www.youtube.com/watch?v=f7OPcDX_LyI&t=3s'
+    hasInternet={true}
+    height={210}
+    width='100%'
+    locale='km'
+/>
 ```
 
-## Contributing
+## Properties
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+#### Basic
+| Prop               |    Default    |    Type    | Description                                                         |
+| :----------------- | :-----------: | :--------: | :-------------------------------------------------------------------|
+| videoUrl           |       ''      |  `string`  | The URL of the Youtube video                                        |
+| hasInternet        |    'false'    |  `boolean` | The status of the internet connection of the user device            |
+| height             |      210      |  `number`  | The height of the iframe                                            |
+| width              |     '100%'    |  `number`  | The width of the iframe                                             |
+| locale             |      'km'     |  `string`  | The locale of the warning message (`km` or `en`)                    |
+| labelSize          |       14      |  `number`  | The font size of the warning message                                |
+| playIconSize       |       38      |  `number`  | The size of the play icon                                           |
+| loadingColor       |   '#000000'   |  `string`  | The color of the loading indicator                                  |
 
-## License
+#### Custom styles
 
-MIT
+| Prop                    |    Default    |   Type    | Description                                |
+| :---------------------- | :-----------: | :-------: | :----------------------------------------- |
+| containerStyle          |     {...}     |  `style`  | Style of the main container                |
+| playPauseContainerStyle |     {...}     |  `style`  | Style of play/pause container              |
 
 ---
 

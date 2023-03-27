@@ -38,6 +38,12 @@ const YoutubeIframePlayerComponent = (props) => {
     return () => !!timeout && clearTimeout(timeout)
   }, [])
 
+  const onReady = () => {
+    setState({isLoading: false});
+    isLoadingRef.current = false;
+    !!props.onReady && props.onReady();
+  }
+
   const renderVideoPlayer = () => {
     return <React.Fragment>
               <PlayerControlsComponent playerRef={playerRef} isPlaying={state.isPlaying} isLoading={state.isLoading} videoState={state.videoState} playPauseContainerStyle={props.playPauseContainerStyle}
@@ -49,7 +55,7 @@ const YoutubeIframePlayerComponent = (props) => {
                 width={'100%'}
                 play={state.isPlaying}
                 videoId={videoUtil.getVideoId(props.videoUrl)}
-                onReady={() => { setState({isLoading: false}); isLoadingRef.current = false; }}
+                onReady={() => onReady()}
                 initialPlayerParams={{ controls: false, rel: false }}
                 onChangeState={(event) => setState({videoState: event})}
               />

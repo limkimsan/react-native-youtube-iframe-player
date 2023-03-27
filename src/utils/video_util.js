@@ -1,3 +1,4 @@
+import {Platform} from 'react-native';
 import {isShortWidthScreen} from './responsive_util';
 
 const videoUtil = (() => {
@@ -23,7 +24,11 @@ const videoUtil = (() => {
   }
 
   function getContainerHeight(heightProps, isTablet) {
-    let height = !!heightProps ? heightProps : isTablet ? 320 : 210
+    const defaultHeight = {
+      ios: {mobile: 225, tablet: 410},
+      android: {mobile: 210, tablet: 320}
+    }
+    let height = !!heightProps ? heightProps : isTablet ? defaultHeight[Platform.OS].tablet : defaultHeight[Platform.OS].mobile
     if (isShortWidthScreen())
       height = height - 20
 

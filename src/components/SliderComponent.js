@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, StyleSheet, Text} from 'react-native'
+import {View, StyleSheet, Text, Platform} from 'react-native'
 import {Slider} from '@miblanchard/react-native-slider'
 import color from '../constants/color_constant'
 import {BUFFERING, ENDED} from '../constants/video_constant'
@@ -63,7 +63,7 @@ class YoutubeIframePlayerSlider extends React.Component {
 
     return (
       <View style={styles.sliderContainer}>
-        <View style={{marginLeft: 8, height: 21, position: 'absolute', zIndex: 1, top: -8}}>
+        <View style={{marginLeft: 8, height: 21, position: 'absolute', zIndex: 1, top: -5}}>
           {this.state.showDuration && <Text style={{fontSize: this.props.durationFontSize || 11, color: 'white'}}>{videoUtil.getFormattedPlaySeconds(this.state.playSeconds)} / {videoUtil.getFormattedPlaySeconds(this.state.duration)}</Text>}
         </View>
         <Slider
@@ -89,7 +89,7 @@ class YoutubeIframePlayerSlider extends React.Component {
 
 const styles = StyleSheet.create({
   sliderContainer: {
-    bottom: -15,
+    bottom: Platform.OS == 'ios' ? -13 : -15,
     position: 'absolute',
     height: 46,
     width: '100%',

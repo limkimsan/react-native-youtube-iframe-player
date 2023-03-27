@@ -8,7 +8,7 @@ const PlayerControlsComponent = (props) => {
   return (
     <React.Fragment>
       <View style={{width: '100%', height: props.height + 10, position: 'absolute', zIndex: 1}} />
-      { props.isLoading && <ActivityIndicator size="large" color={props.loadingColor || color.black} style={{position: 'absolute'}} /> }
+      { props.isLoading && <ActivityIndicator size="large" color={props.loadingColor || color.black} style={{position: 'absolute', zIndex: 1}} /> }
       <TouchableOpacity onPress={() => props.togglePlaying()} style={[styles.touchableContainer, {height: props.height - 20}, props.playPauseContainerStyle]} />
       { !props.isPlaying && <Icon name='play-circle-outline' size={80} color="rgba(255,255,255,0.7)" style={{position:'absolute', zIndex: 1}} />}
       { !props.isLoading &&

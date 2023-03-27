@@ -89,7 +89,7 @@ class YoutubeIframePlayerSlider extends React.Component {
 
 const styles = StyleSheet.create({
   sliderContainer: {
-    bottom: 0,
+    bottom: -15,
     position: 'absolute',
     height: 46,
     width: '100%',

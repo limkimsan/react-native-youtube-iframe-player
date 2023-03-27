@@ -1,5 +1,3 @@
-# react-native-bottom-sheet-picker
-
 React native youtube iframe player is a youtube iframe that is cloned from the react-native-youtube-iframe library that solves the issue of showing the developer options when pressing on the iframe if using the youtube iframe inside the pressable component.
 
 ## Support

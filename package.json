@@ -1,6 +1,6 @@
 {
   "name": "react-native-youtube-iframe-player",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React native youtube iframe player is a youtube iframe that is cloned from the react-native-youtube-iframe library that solves the issue of showing the developer options when pressing on the iframe if using the youtube iframe inside the pressable component.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -79,10 +79,10 @@
     "react": "*",
     "react-native": "*",
     "react-native-vector-icons": ">=9.2.0",
-    "react-native-webview": "^11.23.1",
-    "react-native-youtube-iframe": "^2.2.2",
-    "@miblanchard/react-native-slider": "^2.2.0",
-    "@react-native-community/netinfo": ">=5.9.10"
+    "react-native-webview": "^13.13.2",
+    "react-native-youtube-iframe": "^2.3.0",
+    "@miblanchard/react-native-slider": "^2.6.0",
+    "@react-native-community/netinfo": "^11.4.1"
   },
   "engines": {
     "node": ">= 16.0.0"
